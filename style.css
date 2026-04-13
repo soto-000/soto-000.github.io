@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #060612;
+    overflow: hidden;
+}
+
+.schermata {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.schermata.attiva {
+    display: flex;
+}
+
+/* ========== INTRO ========== */
+#intro {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a3e 50%, #0a0a1a 100%);
+    color: white;
+    flex-direction: column;
+    text-align: center;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nome-img {
+    max-width: 750px;
+    width: 88%;
+    margin: 0 auto 30px;
+    display: block;
+    filter: drop-shadow(0 0 40px rgba(78, 205, 196, 0.45));
+}
+
+#intro .sottotitolo {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #4ecdc4;
+    text-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+}
+
+#intro .small {
+    font-size: 18px;
+    opacity: 0.7;
+    margin: 20px 0;
+}
+
+#intro button {
+    background: linear-gradient(135deg, #4ecdc4, #2ecc71);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#intro button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(78, 205, 196, 0.5);
+}
+
+.controls {
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+/* ========== GIOCO (fullscreen canvas) ========== */
+#gioco {
+    background: #060612;
+    overflow: hidden;
+}
+
+/* Il canvas mantiene le sue dimensioni originali (1000x600),
+   viene scalato via JS con transform per riempire lo schermo
+   senza distorcere la grafica */
+#canvas {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    /* transform viene impostato da ridimensionaCanvas() in gioco.js */
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(6, 6, 18, 0.8);
+    padding: 12px 30px;
+    border-radius: 40px;
+    color: white;
+    font-size: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ========== SCHERMATE INFO ========== */
+.info {
+    background: rgba(6, 6, 18, 0.95);
+    overflow-y: auto;
+}
+
+.card {
+    background: rgba(20, 20, 40, 0.95);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card-video {
+    max-width: 700px;
+}
+
+/* ICONA QUADRATA */
+.icona-quadrata {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;          /* spazio interno: l'immagine non tocca i bordi */
+    overflow: visible;      /* nessun ritaglio dai bordi arrotondati */
+    box-sizing: border-box;
+}
+
+.icona-quadrata img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    /* mantiene proporzioni, non taglia nulla */
+    display: block;
+}
+
+.card h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contenuto {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.contenuto p {
+    font-size: 18px;
+    margin: 12px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.links {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background: rgba(78, 205, 196, 0.05);
+    border-radius: 15px;
+    border-left: 3px solid #4ecdc4;
+    text-align: left;
+}
+
+.links a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 2;
+    display: block;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #ffed4a;
+    text-decoration: underline;
+}
+
+.frase {
+    font-style: italic;
+    color: #ffd93d;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* ========== VIDEO ========== */
+.video-centrato {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.video-centrato video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 15px;
+    border: 2px solid rgba(167, 139, 250, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+    background: #000;
+}
+
+.torna {
+    margin-top: 30px;
+    color: #4ecdc4;
+    font-size: 16px;
+}
+
+/* ========== FINE ========== */
+#fine {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a3e 100%);
+}
+
+#fine .card {
+    text-align: center;
+}
+
+.fine-card h2 {
+    color: #ffd93d;
+    margin-bottom: 30px;
+    font-size: 48px;
+}
+
+.frase-grande {
+    font-size: 24px;
+    color: #ffd93d;
+    margin: 30px 0;
+    font-style: italic;
+}
+
+#rigiocaBtn {
+    background: linear-gradient(135deg, #4ecdc4, #2ecc71);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s;
+}
+
+#rigiocaBtn:hover {
+    transform: scale(1.05);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .video-centrato video {
+        max-height: 200px;
+    }
+
+    .card h2 {
+        font-size: 26px;
+    }
+
+    .contenuto p {
+        font-size: 15px;
+    }
+}

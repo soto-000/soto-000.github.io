@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Endi Soto - Portfolio Interattivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INTRO -->
+    <div id="intro" class="schermata attiva">
+        <div class="intro-content">
+            <img src="immagini/nome.png" alt="Endi Soto" class="nome-img">
+            <p class="small">Spara agli oggetti per scoprirmi!</p>
+            <button id="startBtn">INIZIA</button>
+            <p class="controls">← → Muovi | SPAZIO Spara | SPAZIO per tornare</p>
+        </div>
+    </div>
+
+    <!-- GIOCO -->
+    <div id="gioco" class="schermata">
+        <canvas id="canvas" width="1000" height="600"></canvas>
+        <div id="hud">
+            <span>🎯 <span id="colpiti">0</span> / 4</span>
+        </div>
+    </div>
+
+    <!-- PASSIONI -->
+    <div id="passioni" class="schermata info">
+        <div class="card">
+            <div class="icona-quadrata">
+                <img src="immagini/passioni.png" alt="Passioni">
+            </div>
+            <h2 style="color: #ff6b6b;">❤️ PASSIONI</h2>
+            <div class="contenuto">
+                <p>🔸 Intelligenza Artificiale Generativa</p>
+                <p>🔸 Automazione di task noiosi</p>
+                <p>🔸 Programmazione creativa</p>
+                <p>🔸 Hardware con Arduino</p>
+            </div>
+            <p class="torna">Premi SPAZIO per tornare al gioco</p>
+        </div>
+    </div>
+
+    <!-- CAPACITÀ -->
+    <div id="capacita" class="schermata info">
+        <div class="card">
+            <div class="icona-quadrata">
+                <img src="immagini/capacita.png" alt="Capacità">
+            </div>
+            <h2 style="color: #4ecdc4;">💻 CAPACITÀ TECNICHE</h2>
+            <div class="contenuto">
+                <p>🔹 Java, C, C++</p>
+                <p>🔹 Assembly</p>
+                <p>🔹 HTML, CSS, JavaScript</p>
+                <p>🔹 Arduino</p>
+            </div>
+            <p class="torna">Premi SPAZIO per tornare al gioco</p>
+        </div>
+    </div>
+
+    <!-- IA -->
+    <div id="ia" class="schermata info">
+        <div class="card">
+            <div class="icona-quadrata">
+                <img src="immagini/ia.png" alt="IA">
+            </div>
+            <h2 style="color: #f39c12;">🤖 INTELLIGENZA ARTIFICIALE</h2>
+            <div class="contenuto">
+                <p>🔸 IA Generativa (testo, immagini)</p>
+                <p>🔸 Automazione PDF e analisi dati</p>
+                <p>🔸 Creazione oggetti interattivi con IA</p>
+                <p>🔸 Prompt engineering</p>
+            </div>
+            <div class="links">
+                <a href="https://grand-trifle-2b084e.netlify.app/" target="_blank">→ Progetto IA Interattiva (Netlify)</a>
+                <a href="https://drive.google.com/file/d/1cIFokOrhM4Gp1uaOQDAgRXfQOj1Oo0s8/view?usp=drive_link" target="_blank">→ Creazioni Immagini con IA (Google Drive)</a>
+            </div>
+            <p class="torna">Premi SPAZIO per tornare al gioco</p>
+        </div>
+    </div>
+
+    <!-- PERSONALE CON VIDEO -->
+    <div id="personale" class="schermata info">
+        <div class="card card-video">
+            <div class="icona-quadrata">
+                <img src="immagini/personale.png" alt="Personale">
+            </div>
+            <h2 style="color: #a78bfa;">👤 ENDI SOTO</h2>
+
+            <div class="video-centrato">
+                <video id="videoPresentazione" controls autoplay playsinline>
+                    <source src="video_presentazione.mp4" type="video/mp4">
+                    Il tuo browser non supporta il video.
+                </video>
+            </div>
+
+            <div class="contenuto">
+                <p><strong>🗣️ Soft Skill:</strong> Comunicazione attivante - spiego la tecnologia senza annoiare</p>
+                <p><strong>📧 Contatto:</strong> endi.soto@email.it</p>
+                <p><strong>🔗 GitHub:</strong> github.com/endisoto</p>
+                <p class="frase">"Qual è il vostro fastidio digitale?<br>Risolviamolo insieme."</p>
+            </div>
+
+            <p class="torna">Premi SPAZIO per tornare al gioco</p>
+        </div>
+    </div>
+
+    <!-- FINE -->
+    <div id="fine" class="schermata">
+        <div class="card fine-card">
+            <h2>✨ GRAZIE! ✨</h2>
+            <p class="frase-grande">"Qual è il vostro fastidio digitale quotidiano?<br>Risolviamolo insieme."</p>
+            <p>📧 endi.soto@email.it | 🔗 github.com/endisoto</p>
+            <button id="rigiocaBtn">RIGIOCA</button>
+        </div>
+    </div>
+
+    <script src="gioco.js"></script>
+</body>
+</html>
